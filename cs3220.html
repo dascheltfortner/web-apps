@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <title>Dasch's Home</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <meta charset="UTF-8" />
+  </head>
+
+  <body id="site">
+
+    <canvas id="background-canvas"></canvas>
+
+    <div id="content-wrapper">
+
+      <div class="button-container">
+        <a class="light" href="term-project/index.html">Project 1</a>
+        <a class="light">Project 2</a>
+        <a class="light">Project 3</a>
+        <a class="light">Project 4</a>
+      </div>
+
+      <div id="title-wrapper">
+        <h1>Dasch Fortner's Page</h1>
+      </div>
+
+      <div class="button-container">
+        <a class="light">Project 5</a>
+        <a class="light">Project 6</a>
+        <a class="light">Project 7</a>
+        <a class="light" href="http://judah.cedarville.edu">Home</a>
+      </div>
+
+    </div>
+
+
+    <script>
+      var canvas = document.getElementById('background-canvas');
+      var ctx = canvas.getContext('2d');
+      var mouseX, mouseY;
+
+      document.getElementById('site').addEventListener('mousemove', function(evt) {
+        mouseX = evt.clientX;
+        mouseY = evt.clientY;
+      }, false);
+
+      function dist(x1, y1, x2, y2) {
+        return Math.sqrt(Math.pow(x2 - x1, 2), Math.pow(y2 - y1, 2));
+      }
+
+      function draw() {
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
+        ctx.fillStyle = 'black';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#80adf7';
+
+        for(var i = 0; i < canvas.width; i += 30) {
+          for(var j = 0; j < canvas.height; j += 30) {
+            var size = 2;
+            ctx.fillRect(i, j, size, size);
+          }
+        }
+      }
+
+      setInterval(draw, 100);
+
+    </script>
+
+  </body>
+
+</html>
