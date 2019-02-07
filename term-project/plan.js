@@ -30,8 +30,31 @@ class Plan {
 
   display() {
     let yearPlan = this.convertToYears();
+    let planHTML = '';
     for(let year of yearPlan) {
+      let yearHTML = '<div class="year-block">\n';
+      for(let key in year.terms) {
+        yearHTML += '\t<div class="semester-block">\n';
+        yearHTML += '\t<div class="semester-heading">\n';
+        yearHTML += '\t\t<h5>' + year.terms[key].term + ' ' + year.terms[key].year + '</h5>\n';
+        yearHTML += '\t\t<h5>Hours</h5>\n';
+        yearHTML += '\t</div>\n';
+
+        for(let course of year.terms[key].courses) {
+          yearHTML += '\t<div class="class-block">\n';
+          yearHTML += '\t\t<h5>' + course.designator + '</h5>\n';
+          yearHTML += '\t\t<h6>' + course.name + '</h6>\n';
+          yearHTML += '\t</div>\n';
+        }
+
+        yearHTML += '\t</div>\n';
+      }
+      yearHTML += '</div>\n';
+      planHTML += yearHTML;
     }
+    console.log(planHTML);
+    let container = document.getElementById('course-content');
+    container.innerHTML = planHTML;
   }
 
 }
