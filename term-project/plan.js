@@ -37,7 +37,7 @@ class Plan {
         yearHTML += '\t<div class="semester-block">\n';
         yearHTML += '\t<div class="semester-heading">\n';
         yearHTML += '\t\t<h5>' + year.terms[key].term + ' ' + year.terms[key].year + '</h5>\n';
-        yearHTML += '\t\t<h5>Hours</h5>\n';
+        yearHTML += '\t\t<h5>' + year.terms[key].credits + ' Hours</h5>\n';
         yearHTML += '\t</div>\n';
 
         for(let course of year.terms[key].courses) {
@@ -52,7 +52,6 @@ class Plan {
       yearHTML += '</div>\n';
       planHTML += yearHTML;
     }
-    console.log(planHTML);
     let container = document.getElementById('course-content');
     container.innerHTML = planHTML;
   }
@@ -88,74 +87,75 @@ class Term {
     this.courses = [];
     this.term    = term;
     this.year    = year;
+    this.credits = 0;
   }
 
   addCourse(course) {
     this.courses.push(course);
+    this.credits += course.credits;
   }
 
 }
 
 class Course {
 
-  constructor(term, year, designator, name) {
+  constructor(term, year, designator, name, credits) {
     this.term       = term;
     this.year       = year;
     this.designator = designator;
     this.name       = name;
+    this.credits    = credits;
   }
 
 }
 
 function makePlan() {
   let currentPlan = new Plan('Dasch\'s Plan', 2016, 'Computer Science', 'Dasch', 'spr-2019');
-  currentPlan.addCourse(new Course('Fall', 2016, 'CS-1210', 'C++ Programming'));
-  currentPlan.addCourse(new Course('Fall', 2016, 'COM-1100', 'Fundamentals of Speech'));
-  currentPlan.addCourse(new Course('Fall', 2016, 'HUM-1400', 'Intro to Humanities'));
-  currentPlan.addCourse(new Course('Fall', 2016, 'EGCP-1010', 'Digital Logic Design'));
-  currentPlan.addCourse(new Course('Fall', 2016, 'MATH-1710', 'Calculus I'));
-  currentPlan.addCourse(new Course('Spring', 2017, 'CS-1220', 'Object Oriented Design with C++'));
-  currentPlan.addCourse(new Course('Spring', 2017, 'PHYS-2110', 'General Physics I'));
-  currentPlan.addCourse(new Course('Spring', 2017, 'BTGE-1720', 'Spiritual Formation'));
-  currentPlan.addCourse(new Course('Spring', 2017, 'MATH-1720', 'Calculus II'));
-  currentPlan.addCourse(new Course('Spring', 2017, 'PEF-1990', 'Phys Act & the Christian Life'));
+  currentPlan.addCourse(new Course('Fall', 2016, 'CS-1210', 'C++ Programming', 3));
+  currentPlan.addCourse(new Course('Fall', 2016, 'COM-1100', 'Fundamentals of Speech', 3));
+  currentPlan.addCourse(new Course('Fall', 2016, 'HUM-1400', 'Intro to Humanities', 3));
+  currentPlan.addCourse(new Course('Fall', 2016, 'EGCP-1010', 'Digital Logic Design', 3));
+  currentPlan.addCourse(new Course('Fall', 2016, 'MATH-1710', 'Calculus I', 5));
+  currentPlan.addCourse(new Course('Spring', 2017, 'CS-1220', 'Object Oriented Design with C++', 3));
+  currentPlan.addCourse(new Course('Spring', 2017, 'PHYS-2110', 'General Physics I', 4));
+  currentPlan.addCourse(new Course('Spring', 2017, 'BTGE-1720', 'Spiritual Formation', 3));
+  currentPlan.addCourse(new Course('Spring', 2017, 'MATH-1720', 'Calculus II', 5));
+  currentPlan.addCourse(new Course('Spring', 2017, 'PEF-1990', 'Phys Act & the Christian Life', 2));
 
-  currentPlan.addCourse(new Course('Fall', 2017, 'CS-1210', 'C++ Programming'));
-  currentPlan.addCourse(new Course('Fall', 2017, 'COM-1100', 'Fundamentals of Speech'));
-  currentPlan.addCourse(new Course('Fall', 2017, 'HUM-1400', 'Intro to Humanities'));
-  currentPlan.addCourse(new Course('Fall', 2017, 'EGCP-1010', 'Digital Logic Design'));
-  currentPlan.addCourse(new Course('Fall', 2017, 'MATH-1710', 'Calculus I'));
-  currentPlan.addCourse(new Course('Spring', 2018, 'CS-1220', 'Object Oriented Design with C++'));
-  currentPlan.addCourse(new Course('Spring', 2018, 'PHYS-2110', 'General Physics I'));
-  currentPlan.addCourse(new Course('Spring', 2018, 'BTGE-1720', 'Spiritual Formation'));
-  currentPlan.addCourse(new Course('Spring', 2018, 'MATH-1720', 'Calculus II'));
-  currentPlan.addCourse(new Course('Spring', 2018, 'PEF-1990', 'Phys Act & the Christian Life'));
+  currentPlan.addCourse(new Course('Fall', 2017, 'CS-1210', 'C++ Programming', 3));
+  currentPlan.addCourse(new Course('Fall', 2017, 'COM-1100', 'Fundamentals of Speech', 3));
+  currentPlan.addCourse(new Course('Fall', 2017, 'HUM-1400', 'Intro to Humanities', 3));
+  currentPlan.addCourse(new Course('Fall', 2017, 'EGCP-1010', 'Digital Logic Design', 3));
+  currentPlan.addCourse(new Course('Fall', 2017, 'MATH-1710', 'Calculus I', 5));
+  currentPlan.addCourse(new Course('Spring', 2018, 'CS-1220', 'Object Oriented Design with C++', 3));
+  currentPlan.addCourse(new Course('Spring', 2018, 'PHYS-2110', 'General Physics I', 4));
+  currentPlan.addCourse(new Course('Spring', 2018, 'BTGE-1720', 'Spiritual Formation', 3));
+  currentPlan.addCourse(new Course('Spring', 2018, 'MATH-1720', 'Calculus II', 5));
+  currentPlan.addCourse(new Course('Spring', 2018, 'PEF-1990', 'Phys Act & the Christian Life', 2));
 
-  currentPlan.addCourse(new Course('Fall', 2018, 'CS-1210', 'C++ Programming'));
-  currentPlan.addCourse(new Course('Fall', 2018, 'COM-1100', 'Fundamentals of Speech'));
-  currentPlan.addCourse(new Course('Fall', 2018, 'HUM-1400', 'Intro to Humanities'));
-  currentPlan.addCourse(new Course('Fall', 2018, 'EGCP-1010', 'Digital Logic Design'));
-  currentPlan.addCourse(new Course('Fall', 2018, 'MATH-1710', 'Calculus I'));
-  currentPlan.addCourse(new Course('Spring', 2019, 'CS-1220', 'Object Oriented Design with C++'));
-  currentPlan.addCourse(new Course('Spring', 2019, 'PHYS-2110', 'General Physics I'));
-  currentPlan.addCourse(new Course('Spring', 2019, 'BTGE-1720', 'Spiritual Formation'));
-  currentPlan.addCourse(new Course('Spring', 2019, 'MATH-1720', 'Calculus II'));
-  currentPlan.addCourse(new Course('Spring', 2019, 'PEF-1990', 'Phys Act & the Christian Life'));
+  currentPlan.addCourse(new Course('Fall', 2018, 'CS-1210', 'C++ Programming', 3));
+  currentPlan.addCourse(new Course('Fall', 2018, 'COM-1100', 'Fundamentals of Speech', 3));
+  currentPlan.addCourse(new Course('Fall', 2018, 'HUM-1400', 'Intro to Humanities', 3));
+  currentPlan.addCourse(new Course('Fall', 2018, 'EGCP-1010', 'Digital Logic Design', 3));
+  currentPlan.addCourse(new Course('Fall', 2018, 'MATH-1710', 'Calculus I', 5));
+  currentPlan.addCourse(new Course('Spring', 2019, 'CS-1220', 'Object Oriented Design with C++', 3));
+  currentPlan.addCourse(new Course('Spring', 2019, 'PHYS-2110', 'General Physics I', 4));
+  currentPlan.addCourse(new Course('Spring', 2019, 'BTGE-1720', 'Spiritual Formation', 3));
+  currentPlan.addCourse(new Course('Spring', 2019, 'MATH-1720', 'Calculus II', 5));
+  currentPlan.addCourse(new Course('Spring', 2019, 'PEF-1990', 'Phys Act & the Christian Life', 2));
 
-  currentPlan.addCourse(new Course('Fall', 2019, 'CS-1210', 'C++ Programming'));
-  currentPlan.addCourse(new Course('Fall', 2019, 'COM-1100', 'Fundamentals of Speech'));
-  currentPlan.addCourse(new Course('Fall', 2019, 'HUM-1400', 'Intro to Humanities'));
-  currentPlan.addCourse(new Course('Fall', 2019, 'EGCP-1010', 'Digital Logic Design'));
-  currentPlan.addCourse(new Course('Fall', 2019, 'MATH-1710', 'Calculus I'));
-  currentPlan.addCourse(new Course('Spring', 2020, 'CS-1220', 'Object Oriented Design with C++'));
-  currentPlan.addCourse(new Course('Spring', 2020, 'PHYS-2110', 'General Physics I'));
-  currentPlan.addCourse(new Course('Spring', 2020, 'BTGE-1720', 'Spiritual Formation'));
-  currentPlan.addCourse(new Course('Spring', 2020, 'MATH-1720', 'Calculus II'));
-  currentPlan.addCourse(new Course('Spring', 2020, 'PEF-1990', 'Phys Act & the Christian Life'));
+  currentPlan.addCourse(new Course('Fall', 2019, 'CS-1210', 'C++ Programming', 3));
+  currentPlan.addCourse(new Course('Fall', 2019, 'COM-1100', 'Fundamentals of Speech', 3));
+  currentPlan.addCourse(new Course('Fall', 2019, 'HUM-1400', 'Intro to Humanities', 3));
+  currentPlan.addCourse(new Course('Fall', 2019, 'EGCP-1010', 'Digital Logic Design', 3));
+  currentPlan.addCourse(new Course('Fall', 2019, 'MATH-1710', 'Calculus I', 5));
+  currentPlan.addCourse(new Course('Spring', 2020, 'CS-1220', 'Object Oriented Design with C++', 3));
+  currentPlan.addCourse(new Course('Spring', 2020, 'PHYS-2110', 'General Physics I', 4));
+  currentPlan.addCourse(new Course('Spring', 2020, 'BTGE-1720', 'Spiritual Formation', 3));
+  currentPlan.addCourse(new Course('Spring', 2020, 'MATH-1720', 'Calculus II', 5));
+  currentPlan.addCourse(new Course('Spring', 2020, 'PEF-1990', 'Phys Act & the Christian Life', 2));
 
   currentPlan.display();
-  console.log(currentPlan);
-  console.log(yearPlan);
 }
 
 makePlan();

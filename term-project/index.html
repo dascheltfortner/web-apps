@@ -6,6 +6,9 @@
     <title>Academic Planning</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+
+    <script src="events.js"></script>
   </head>
 
   <body>
@@ -13,9 +16,17 @@
     <div class="flex-column full-height">
 
       <div id="header" class="flex-row white-font">
-        <span></span>
-        <h3>WEB AP</h3>
-        <span></span>
+        <div class=""></div>
+        <h3 class="">WEB AP</h3>
+        <div class="color-square" onclick="toggleColorMenu()">
+          <div id="color-dropdown" class="dropdown-menu flex-column">
+            <div class="color-square blue" onclick="changeColor('#205d93')"></div>
+            <div class="color-square green" onclick="changeColor('#3b843f')"></div>
+            <div class="color-square red" onclick="changeColor('#913a2e')"></div>
+            <div class="color-square purple" onclick="changeColor('#712d91')"></div>
+            <div class="color-square brown" onclick="changeColor('#70491d')"></div>
+          </div>
+        </div>
       </div>
 
       <div id="plan-heading" class="flex-row white-font">
@@ -28,7 +39,7 @@
 
       <div id="content-wrapper" class="flex-column full-height">
 
-        <div id="upper-content" class="flex-row flex-2 flex-wrap">
+        <div id="upper-content" class="flex-row flex-2 flex-wrap scroll-panel">
           <div class="panel flex-1 side-container">
             <div class="title"><h5>Requirements</h5></div>
             <div class="flex-column">
@@ -39,269 +50,7 @@
 
           <div class="panel flex-2">
             <div class="title"><h5>Terms</h5></div>
-            <div id="course-content" class="scroll-panel">
-
-              <!-- First Year -->
-
-              <div>
-                <div class="year-block">
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Fall 2016</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                    <div class="class-block">
-                      <h5>CS-1210</h5>
-                      <h6>C++ Programming</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>COM-1100</h5>
-                      <h6>Fundamentals of Speech</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>HUM-1400</h5>
-                      <h6>Intro to Humanities</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>EGCP-1010</h5>
-                      <h6>Digital Logic Design</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>MATH-1710</h5>
-                      <h6>Calculus I</h6>
-                    </div>
-                  </div>
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Spring 2017</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                    <div class="class-block">
-                      <h5>CS-1220</h5>
-                      <h6>Object Oriented Design with C++</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>PHYS-2110</h5>
-                      <h6>General Physics I</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>BTGE-1720</h5>
-                      <h6>Spiritual Formation</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>MATH-1720</h5>
-                      <h6>Calculus II</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>PEF-1990</h5>
-                      <h6>Phys Act & the Christian Life</h6>
-                    </div>
-                  </div>
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Summer 2017</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Second Year -->
-
-              <div>
-                <div class="year-block">
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Fall 2017</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                    <div class="class-block">
-                      <h5>CS-1210</h5>
-                      <h6>C++ Programming</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>COM-1100</h5>
-                      <h6>Fundamentals of Speech</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>HUM-1400</h5>
-                      <h6>Intro to Humanities</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>EGCP-1010</h5>
-                      <h6>Digital Logic Design</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>MATH-1710</h5>
-                      <h6>Calculus I</h6>
-                    </div>
-                  </div>
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Spring 2018</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                    <div class="class-block">
-                      <h5>CS-1220</h5>
-                      <h6>Object Oriented Design with C++</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>PHYS-2110</h5>
-                      <h6>General Physics I</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>BTGE-1720</h5>
-                      <h6>Spiritual Formation</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>MATH-1720</h5>
-                      <h6>Calculus II</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>PEF-1990</h5>
-                      <h6>Phys Act & the Christian Life</h6>
-                    </div>
-                  </div>
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Summer 2018</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Third Year -->
-
-              <div>
-                <div class="year-block">
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Fall 2018</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                    <div class="class-block">
-                      <h5>CS-1210</h5>
-                      <h6>C++ Programming</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>COM-1100</h5>
-                      <h6>Fundamentals of Speech</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>HUM-1400</h5>
-                      <h6>Intro to Humanities</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>EGCP-1010</h5>
-                      <h6>Digital Logic Design</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>MATH-1710</h5>
-                      <h6>Calculus I</h6>
-                    </div>
-                  </div>
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Spring 2019</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                    <div class="class-block">
-                      <h5>CS-1220</h5>
-                      <h6>Object Oriented Design with C++</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>PHYS-2110</h5>
-                      <h6>General Physics I</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>BTGE-1720</h5>
-                      <h6>Spiritual Formation</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>MATH-1720</h5>
-                      <h6>Calculus II</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>PEF-1990</h5>
-                      <h6>Phys Act & the Christian Life</h6>
-                    </div>
-                  </div>
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Summer 2019</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Fourth Year -->
-
-              <div>
-                <div class="year-block">
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Fall 2019</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                    <div class="class-block">
-                      <h5>CS-1210</h5>
-                      <h6>C++ Programming</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>COM-1100</h5>
-                      <h6>Fundamentals of Speech</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>HUM-1400</h5>
-                      <h6>Intro to Humanities</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>EGCP-1010</h5>
-                      <h6>Digital Logic Design</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>MATH-1710</h5>
-                      <h6>Calculus I</h6>
-                    </div>
-                  </div>
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Spring 2020</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                    <div class="class-block">
-                      <h5>CS-1220</h5>
-                      <h6>Object Oriented Design with C++</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>PHYS-2110</h5>
-                      <h6>General Physics I</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>BTGE-1720</h5>
-                      <h6>Spiritual Formation</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>MATH-1720</h5>
-                      <h6>Calculus II</h6>
-                    </div>
-                    <div class="class-block">
-                      <h5>PEF-1990</h5>
-                      <h6>Phys Act & the Christian Life</h6>
-                    </div>
-                  </div>
-                  <div class="semester-block">
-                    <div class="semester-heading">
-                      <h5>Summer 2020</h5>
-                      <h5>17 Hours</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+            <div id="course-content"></div>
           </div>
         </div>
 
@@ -309,14 +58,17 @@
 
           <div class="panel flex-1 side-container">
             <div class="title"><h5>Validation Status</h5></div>
-            <form>
+            <form action="http://judah.cedarville.edu/echo.php" autocomplete="off" onsubmit="enableButton()" method="post" target="_blank">
               <div class="flex-column">
-                <label for="name">Name</label>
-                <input type="text" id="name"></input>
-                <label for="email">Email</label>
-                <input type="text" id="email"></input>
-                <label for="phone">Phone</label>
-                <input type="text" id="phone"></input>
+                <div class="input-container flex-column">
+                  <label class="input-label" for="name">Name</label>
+                  <input class="input-box" type="text" id="name-field" onchange="enableButton()" oninput="color('name-field', validName); enableButton()"></input>
+                </div>
+                <div class="input-container flex-column">
+                  <label class="input-label" for="email">Email</label>
+                  <input class="input-box" type="text" id="email-field" onchange="enableButton()" oninput="color('email-field', validEmail); enableButton()"></input>
+                </div>
+                <input type="submit" id="submit-button" class="link-button form-button" disabled></input>
               </div>
             </form>
           </div>
@@ -330,7 +82,7 @@
 
     </div>
 
-    <script src="./plan.js"></script>
+    <script src="plan.js"></script>
 
   </body>
 

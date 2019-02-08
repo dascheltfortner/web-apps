@@ -15,8 +15,8 @@
     <div id="content-wrapper">
 
       <div class="button-container">
-        <a class="light" href="term-project/index.html">Project 1</a>
-        <a class="light">Project 2</a>
+        <a class="light" href="project-1/index.html">Project 1</a>
+        <a class="light" href="term-project/index.html">Project 2</a>
         <a class="light">Project 3</a>
         <a class="light">Project 4</a>
       </div>
@@ -39,6 +39,9 @@
       var canvas = document.getElementById('background-canvas');
       var ctx = canvas.getContext('2d');
       var mouseX, mouseY;
+      let red = 128, green = 173, blue = 247;
+      let delta = 5;
+      let dRed = 5, dGreen = 10, dBlue = 2;
 
       document.getElementById('site').addEventListener('mousemove', function(evt) {
         mouseX = evt.clientX;
@@ -46,19 +49,41 @@
       }, false);
 
       function dist(x1, y1, x2, y2) {
-        return Math.sqrt(Math.pow(x2 - x1, 2), Math.pow(y2 - y1, 2));
+        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+      }
+
+      function scale(value) {
+        let percentage = value / document.documentElement.clientWidth;
+        return 6 * percentage;
       }
 
       function draw() {
         canvas.width = document.body.clientWidth;
         canvas.height = document.body.clientHeight;
+        
+        if(red >= 255) { dRed *= -1; }
+        else if(red <= 0) { dRed *= -1; }
+        if(green >= 255) { dGreen *= -1; }
+        else if(green <= 0) { dGreen*= -1; }
+        if(blue >= 255) { dBlue *= -1; }
+        else if(blue <= 0) { dBlue *= -1; }
+
+        red += dRed;
+        green += dGreen;
+        blue += dBlue;
+
         ctx.fillStyle = 'black';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = '#80adf7';
+        ctx.fillStyle = `rgb(${red}, ${green}, ${blue})`;
 
-        for(var i = 0; i < canvas.width; i += 30) {
-          for(var j = 0; j < canvas.height; j += 30) {
-            var size = 2;
+        for(let i = 0; i < canvas.width; i += 30) {
+          for(let j = 0; j < canvas.height; j += 30) {
+            let size = scale(dist(mouseX, mouseY, i, j));
+            /*
+            if(dist(mouseX, mouseY, i, j) < 200) {
+              size = 4;
+            }
+            */
             ctx.fillRect(i, j, size, size);
           }
         }
