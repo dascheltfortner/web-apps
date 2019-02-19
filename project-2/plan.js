@@ -1,7 +1,3 @@
-getCombinedCourses(console.log);
-getRequirements(console.log);
-kelleyBlueBook(console.log);
-
 class Plan {
 
   constructor(name, year, major, student, semester) {
